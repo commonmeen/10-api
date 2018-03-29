@@ -233,5 +233,9 @@ Route::prefix('/v1')->group(function () {
             Route::get('/', 'NotificationController@getAll');
             Route::get('/user_id/{id}', 'NotificationController@getByUserId');
         });
+
+        Route::prefix('itima')->group(function () {
+            Route::get('/','ItimscoreController@getAll');
+        });
     });
 });
