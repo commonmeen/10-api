@@ -84,6 +84,11 @@ class User extends Authenticatable implements JWTSubject
         return $this->hasMany('App\Models\Notification');
     }
 
+    public function itim_score()
+    {
+        return $this->hasMany('App\Models\ItimScore','user_id');
+    }
+
     public function getJWTIdentifier()
     {
         return $this->getKey();

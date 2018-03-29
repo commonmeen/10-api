@@ -118,7 +118,7 @@ Route::prefix('/v1')->group(function () {
             Route::get('answer/{answerId}/','AnswerController@getAnswerById');
             Route::get('{roleId}/{checkerId}','AnswerController@getCheckerAnswer');
             // Route::get('/{teamId}','AnswerController@getByTeam');
-            Route::get('/evals/{$answerId}', 'AnswerController@getEvalsAnswer');
+            Route::get('/evals/{$answerId}', 'AnswerController@getEvalsByAnswer');
             Route::get('/{questionId}','AnswerController@getByQuestion');
             Route::get('/{userId}/count', 'AnswerController@getCountById')
             ->middleware('checkWipperByRole');
@@ -236,6 +236,9 @@ Route::prefix('/v1')->group(function () {
 
         Route::prefix('itima')->group(function () {
             Route::get('/','ItimscoreController@getAll');
+            Route::post('/','ItimscoreController@post');
+            Route::put('/','ItimscoreController@put');
+            Route::get('/evals/{answerId}','EvalController@getEvalsByAnswerId');
         });
     });
 });

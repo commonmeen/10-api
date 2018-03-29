@@ -44,6 +44,11 @@ class AnswerController extends Controller
         return json_encode(['data' => $data]);
     }
 
+
+    function getEvalsByAnswer($answerId){
+        $data = $this->answers->getEvalsByAnswer($answerId)
+    }
+
     function getAnswerById($answerId){
         return $this->answers->getAnswerById($answerId);
     }

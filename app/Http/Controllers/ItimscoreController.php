@@ -18,6 +18,11 @@ class ItimscoreController extends Controller
         return $this->itimscore->getAll();
     }
 
+    public function getBy($userId)
+    {
+        return $this->itimscore->getBy($userId);
+    }
+
     public function put(Request $request)
     {
         //json_decode
@@ -29,7 +34,7 @@ class ItimscoreController extends Controller
     {
         //json_decode
         $data = $request->input('data');
-        return $this->itimscore->put($data);
+        return $this->itimscore->post($data);
     }
-    
+
 }

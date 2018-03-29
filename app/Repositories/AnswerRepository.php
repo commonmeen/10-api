@@ -51,6 +51,10 @@ class AnswerRepository implements AnswerRepositoryInterface {
     return $data;
   }
 
+  public function getEvalsByAnswer($answerId){
+    return
+  }
+
   public function update($data) {
     $time = new Carbon;
     $this->answers

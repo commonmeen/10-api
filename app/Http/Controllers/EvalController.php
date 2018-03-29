@@ -1,14 +1,15 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Repositories\EvalsRepository;
+use App\Repositories\EvalsRepositoryInterface;
 use DB;
 
 class EvalController extends Controller
 {
     //
-    function __construct() {
-        $this->evals = new EvalsRepository;
+    protected $evals;
+    function __construct(EvalsRepositoryInterface $evals) {
+        $this->evals = $evals;
     }
     function Index ()
     {
@@ -17,9 +18,11 @@ class EvalController extends Controller
             'data'=>$this->evals->getEvals()
         ]);
     }
-    function getEvalsById ($answerId)
+    function getEvalsByAnswerId ($answerId)
     {
-       return DB::select('select * from evals where answer_id = '.$answerId.' order by criteria_id');
+        dd("1234564");
+    //    return DB::select('select * from evals where answer_id = '.$answerId.' order by criteria_id');
+        return $this->evals->getEvalsByAnswerId($answerId);
     }
     function getCriteriaByAnswer ($questionId){
         return DB::select('select * from eval_criterias where question_id = '.$questionId);

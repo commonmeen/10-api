@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\Evals;
 class EvalsRepository implements EvalsRepositoryInterface {
     protected $evals;
+    
     public function getEvals(){
         $this->evals = new Evals();
         return $this->evals->with('eval_answer')->get();
@@ -23,5 +24,9 @@ class EvalsRepository implements EvalsRepositoryInterface {
             'answer_id' => $answerId,
             'criteria_id' => $criteriaId
         ])->update($eval);
+    }
+
+    public function getEvalsByAnswerId($answerId){
+        return 'getEvalsByAnswerId';
     }
 }
