@@ -238,7 +238,7 @@ Route::prefix('/v1')->group(function () {
             Route::get('/','ItimscoreController@getAll');
             Route::post('/','ItimscoreController@post');
             Route::put('/','ItimscoreController@put');
-            Route::get('/evals/{answerId}','EvalController@getEvalsByAnswerId');
+            Route::get('/evals','ItimscoreController@getWithEvals');
         });
     });
 });

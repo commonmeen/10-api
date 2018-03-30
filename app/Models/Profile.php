@@ -60,4 +60,9 @@ class Profile extends Model
     {
         return $this->hasMany('App\Models\EvalAnswer', 'user_id', 'user_id');
     }
+
+    public function evals()
+    {
+        return $this->haveMany('App\Models\Evals')->using('eval_answers');
+    }
 }

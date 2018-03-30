@@ -37,4 +37,8 @@ class ItimscoreController extends Controller
         return $this->itimscore->post($data);
     }
 
+    public function getWithEvals()
+    {
+        return $this->itimscore->getWithEvals();
+    }
 }

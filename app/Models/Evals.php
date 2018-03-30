@@ -19,7 +19,7 @@ class Evals extends Model
 
     public function eval_criteria()
     {
-        return $this->belongsTo('App\Models\EvalCriteria', 'id', 'criteria_id');
+        return $this->belongsTo('App\Models\EvalCriteria', 'id');
     }
 
     public function eval_checker()
