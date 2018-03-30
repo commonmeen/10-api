@@ -39,6 +39,7 @@ class ItimscoreController extends Controller
 
     public function getWithEvals()
     {
-        return $this->itimscore->getWithEvals();
+        $data =  $this->itimscore->getWithEvals();
+        return $data;
     }
 }
